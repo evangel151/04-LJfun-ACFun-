@@ -38,6 +38,8 @@
     NSURL *url            = LJURL(@"video?type=XML");
     // 2. 创建请求
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    request.timeoutInterval = 5; // 设置请求超时时间
 
     // 3. 发送请求
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
